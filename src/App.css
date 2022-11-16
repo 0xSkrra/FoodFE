@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+:root{
+  --text-color-primary: #b0afaf;
+  --background-color-primary: #061013;
+  --hover-color-primary: #ededed;
+}
+
+#root{
+  background-color: var(--background-color-primary);
+  color: var(--text-color-primary);
+}
+a:hover{
+  color: var(--hover-color-primary);
+}
+.logo-image:hover{
+  fill: var(--hover-color-primary)
+}
