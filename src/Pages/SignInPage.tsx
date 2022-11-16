@@ -1,7 +1,5 @@
-import React, { useState } from "react"
-import { FloatLabelInput } from "../utilities/FloatLabelInput"
-import { LoginForm } from "./loginForm"
-import { RegisterForm } from "./registerForm"
+import { LoginForm } from "../../Components/Forms/loginForm"
+import { RegisterForm } from "../../Components/Forms/registerForm"
 
 const SignInPage = () => {
   return (

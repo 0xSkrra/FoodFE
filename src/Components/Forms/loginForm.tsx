@@ -1,7 +1,6 @@
-import { Dialog, Transition } from "@headlessui/react"
-import React, { Fragment, useState } from "react"
+import { useState } from "react"
 import { FloatLabelInput } from "../utilities/FloatLabelInput"
-import ForgotPasswordModal from "./forgotPasswordModal"
+import ForgotPasswordModal from "../Modals/forgotPasswordModal"
 
 export const LoginForm = () => {
   const [email, setEmail] = useState("")
