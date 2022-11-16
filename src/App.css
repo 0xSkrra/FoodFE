@@ -52,3 +52,15 @@ a:hover{
 .logo-image:hover{
   fill: var(--hover-color-primary)
 }
+.float-label-input label{
+  color: var(--text-color-primary);
+  background-color: var(--background-color-primary);
+}
+.float-label-input input{
+  color: var(--text-color-primary);
+  background-color: var(--background-color-primary);
+}
+.h1-link:hover{
+  color:var(--hover-color-primary);
+  cursor:pointer;
+}
