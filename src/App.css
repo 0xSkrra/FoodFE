@@ -39,7 +39,10 @@
 :root{
   --text-color-primary: #b0afaf;
   --background-color-primary: #061013;
-  --hover-color-primary: #ededed;
+  --hover-color-primary: #E7BBCB;
+  --hover-color-secondary: #AF96AC;
+  --background-color-secondary: #273038;
+  --text-color-secondary: #C2CACD;
 }
 
 #root{
