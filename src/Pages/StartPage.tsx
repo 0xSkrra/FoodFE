@@ -1,7 +1,9 @@
+import ListItem from "../Components/utilities/ListItem"
+
 const StartPage = () => {
   return (
     <div>
-      <h1>StartPageBrother</h1>
+      <ListItem movie={{}} />
     </div>
   )
 }

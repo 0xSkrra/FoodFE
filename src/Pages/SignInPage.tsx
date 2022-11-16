@@ -1,5 +1,5 @@
-import { LoginForm } from "../../Components/Forms/loginForm"
-import { RegisterForm } from "../../Components/Forms/registerForm"
+import { LoginForm } from "../Components/Forms/loginForm"
+import { RegisterForm } from "../Components/Forms/registerForm"
 
 const SignInPage = () => {
   return (
