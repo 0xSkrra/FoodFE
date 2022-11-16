@@ -10,7 +10,10 @@ export const LoginForm = () => {
 
   return (
     <>
-      {isOpen ? <ForgotPasswordModal /> : <></>}
+      <ForgotPasswordModal
+        isOpen={isOpen}
+        setIsOpen={() => setIsOpen((prev) => !prev)}
+      />
       <form className="flex flex-col items-center md:items-start md:flex-col-reverse sm:flex-row w-full py-10 shadow-lg  sm:rounded-md">
         <div className="w-full sm:w-1/2 max-w-lg">
           <div className="flex flex-row space-x-2 w-full mb-2">

@@ -1,16 +1,21 @@
 import { Dialog, Transition } from "@headlessui/react"
 import React, { Fragment, useState } from "react"
 import { FloatLabelInput } from "../utilities/FloatLabelInput"
-
-const ForgotPasswordModal = () => {
-  const [isOpen, setIsOpen] = useState(true)
+interface ForgotPasswordModalProps {
+  isOpen: boolean
+  setIsOpen: () => void
+}
+const ForgotPasswordModal = ({
+  isOpen,
+  setIsOpen,
+}: ForgotPasswordModalProps) => {
   const [email, setEmail] = useState("")
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog
         as="div"
         className="relative z-10 min-w-1/2 min-h-1/2"
-        onClose={() => setIsOpen(false)}
+        onClose={setIsOpen}
       >
         <Transition.Child
           as={Fragment}
@@ -60,7 +65,7 @@ const ForgotPasswordModal = () => {
                   <button
                     type="button"
                     className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => setIsOpen}
                   >
                     submit
                   </button>
