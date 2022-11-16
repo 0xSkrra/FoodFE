@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@headlessui/react": "^1.7.4",
+    "@headlessui/tailwindcss": "^0.1.1",
     "@heroicons/react": "^2.0.13",
     "@tailwindcss/typography": "^0.5.8",
     "@testing-library/jest-dom": "^5.14.1",

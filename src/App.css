@@ -67,3 +67,9 @@ a:hover{
   color:var(--hover-color-primary);
   cursor:pointer;
 }
+.dialog-panel-bg{
+  background-color: var(--background-color-secondary) !important;
+}
+.standard-text-color{
+  color: var(--text-color-primary)
+}

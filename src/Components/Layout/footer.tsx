@@ -8,24 +8,30 @@ const Footer = () => {
           <ul className="max-w-screen-md mx-auto text-lg font-light flex flex-wrap justify-between">
             <li className="my-2">
               <a
+                target="_blank"
+                rel="noreferrer"
                 className="text-sm text-medium transition-colors duration-200"
-                href="#"
+                href="https://gitlab.com/users/esp0x1"
               >
-                FAQ
+                Gitlab
               </a>
             </li>
             <li className="my-2">
               <a
+                target="_blank"
+                rel="noreferrer"
                 className="text-sm text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white transition-colors duration-200"
-                href="#"
+                href="https://github.com/0xSkrra"
               >
                 Github
               </a>
             </li>
             <li className="my-2">
               <a
+                target="_blank"
+                rel="noreferrer"
                 className="text-sm text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white transition-colors duration-200"
-                href="#"
+                href="https://no.linkedin.com/in/espen-sjo-72aaa7236"
               >
                 LinkedIn
               </a>
