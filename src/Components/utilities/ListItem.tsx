@@ -1,79 +1,120 @@
 export default function ListItem({ movie }: any) {
-  movie.image = "xxxx"
-  movie.title = "ABS BRO"
-  movie.starRating = "1234"
-  movie.rating = "5"
-  movie.year = "1992"
-  movie.genre = "fuck"
-  movie.runtime = "123"
-  movie.cast = ["frank", "franko"]
   return (
-    <article className="flex items-start space-x-6 p-6 ">
-      <img
-        src={movie.image || ""}
-        alt=""
-        width="60"
-        height="88"
-        className="flex-none rounded-md bg-slate-900"
-      />
-      <div className="min-w-0 max-w-md  bg-slate-900 rounded-lg relative flex-auto">
-        <h2 className="font-semibold  truncate pr-20">{movie.title || ""}</h2>
-        <dl className="mt-2 flex flex-wrap text-sm leading-6 font-medium">
-          <div className="absolute top-0 right-0 flex items-center space-x-1">
-            <dt className="text-sky-500">
-              <span className="sr-only">Star rating</span>
-              <svg width="16" height="20" fill="currentColor">
-                <path d="M7.05 3.691c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.372 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.539 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.783.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.363-1.118L.98 9.483c-.784-.57-.381-1.81.587-1.81H5.03a1 1 0 00.95-.69L7.05 3.69z" />
-              </svg>
-            </dt>
-            <dd>{movie.starRating || ""}</dd>
+    <div className="max-h-24">
+      <div className="flex font-sans max-h-24 max-w-md">
+        <div className="flex-none w-56 relative">
+          <img
+            src="https://thecozycook.com/wp-content/uploads/2022/04/Lasagna-Recipe-f.jpg"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover rounded-lg"
+            loading="lazy"
+          />
+        </div>
+        <form className="flex-auto max-h-24 p-6">
+          <div className="flex flex-wrap">
+            <h1 className="flex-auto text-sm font-medium ">Kids Jumpsuit</h1>
+            <div className="w-full flex-none mt-2 order-1 text-3xl font-bold text-violet-600"></div>
+            <div className="text-sm font-medium text-slate-400">In stock</div>
           </div>
-          <div>
-            <dt className="sr-only">Rating</dt>
-            <dd className="px-1.5 ring-1 ring-slate-200 rounded">
-              {movie.rating || ""}
-            </dd>
+          <div className="flex max-h-24 items-baseline mt-4 mb-6 pb-6 border-b border-slate-200">
+            <div className="space-x-2 max-h-24 flex text-sm font-bold">
+              <label>
+                <input
+                  className="sr-only peer"
+                  name="size"
+                  type="radio"
+                  value="xs"
+                  checked
+                />
+                <div className="w-9 h-9 rounded-full flex items-center justify-center text-violet-400 peer-checked:bg-violet-600 peer-checked:text-white">
+                  XS
+                </div>
+              </label>
+              <label>
+                <input
+                  className="sr-only peer"
+                  name="size"
+                  type="radio"
+                  value="s"
+                />
+                <div className="w-9 h-9 rounded-full flex items-center justify-center text-violet-400 peer-checked:bg-violet-600 peer-checked:text-white">
+                  S
+                </div>
+              </label>
+              <label>
+                <input
+                  className="sr-only peer"
+                  name="size"
+                  type="radio"
+                  value="m"
+                />
+                <div className="w-9 h-9 rounded-full flex items-center justify-center text-violet-400 peer-checked:bg-violet-600 peer-checked:text-white">
+                  M
+                </div>
+              </label>
+              <label>
+                <input
+                  className="sr-only peer"
+                  name="size"
+                  type="radio"
+                  value="l"
+                />
+                <div className="w-9 h-9 rounded-full flex items-center justify-center text-violet-400 peer-checked:bg-violet-600 peer-checked:text-white">
+                  L
+                </div>
+              </label>
+              <label>
+                <input
+                  className="sr-only peer"
+                  name="size"
+                  type="radio"
+                  value="xl"
+                />
+                <div className="w-9 h-9 rounded-full flex items-center justify-center text-violet-400 peer-checked:bg-violet-600 peer-checked:text-white">
+                  XL
+                </div>
+              </label>
+            </div>
           </div>
-          <div className="ml-2">
-            <dt className="sr-only">Year</dt>
-            <dd>{movie.year || ""}</dd>
-          </div>
-          <div>
-            <dt className="sr-only">Genre</dt>
-            <dd className="flex items-center">
+          <div className="flex space-x-4 mb-5 text-sm font-medium">
+            <div className="flex-auto flex space-x-4">
+              <button
+                className="h-10 px-6 font-semibold rounded-full bg-violet-600 text-white"
+                type="submit"
+              >
+                Buy now
+              </button>
+              <button
+                className="h-10 px-6 font-semibold rounded-full border border-slate-200"
+                type="button"
+              >
+                Add to bag
+              </button>
+            </div>
+            <button
+              className="flex-none flex items-center justify-center w-9 h-9 rounded-full text-violet-600 bg-violet-50"
+              type="button"
+              aria-label="Like"
+            >
               <svg
-                width="2"
-                height="2"
+                width="20"
+                height="20"
                 fill="currentColor"
-                className="mx-2 text-slate-300"
                 aria-hidden="true"
               >
-                <circle cx="1" cy="1" r="1" />
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                />
               </svg>
-              {movie.genre || ""}
-            </dd>
+            </button>
           </div>
-          <div>
-            <dt className="sr-only">Runtime</dt>
-            <dd className="flex items-center">
-              <svg
-                width="2"
-                height="2"
-                fill="currentColor"
-                className="mx-2 text-slate-300"
-                aria-hidden="true"
-              >
-                <circle cx="1" cy="1" r="1" />
-              </svg>
-              {movie.runtime || ""}
-            </dd>
-          </div>
-          <div className="flex-none w-full mt-2 font-normal">
-            <dt className="sr-only">Cast</dt>
-            <dd className="text-slate-400">{movie.cast || ""}</dd>
-          </div>
-        </dl>
+          <p className="text-sm ">
+            Free shipping on all continental US orders.
+          </p>
+        </form>
       </div>
-    </article>
+    </div>
   )
 }
