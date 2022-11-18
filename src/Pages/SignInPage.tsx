@@ -3,12 +3,11 @@ import { RegisterForm } from "../Components/Forms/registerForm"
 
 const SignInPage = () => {
   return (
-    <div className=" flex flex-col w-full h-full justify-center items-center sm:flex-row">
-      <div className="flex basis-5/12 h-5/6 items-center">
+    <div className=" flex flex-col w-full h-full justify-center xs:space-x-24 md:space-x-48 items-center md:flex-row">
+      <div className="flex basis-6/12 w-full h-full items-center">
         <RegisterForm />
       </div>
-      <div className="basis-2/12"></div>
-      <div className="flex basis-5/12 h-5/6 items-center">
+      <div className="flex basis-6/12 w-full h-full items-center">
         <LoginForm />
       </div>
     </div>

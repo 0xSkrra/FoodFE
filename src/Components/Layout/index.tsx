@@ -12,7 +12,9 @@ const Layout = ({ children }: LayoutProps) => {
           <div className="pt-10">
             <NavBar />
           </div>
-          <div className="container pt-10 primary-bg">{children}</div>
+          <div className="container pt-10 primary-bg min-w-full">
+            {children}
+          </div>
           <div>
             <Footer />
           </div>

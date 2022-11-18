@@ -7,15 +7,15 @@ export const RegisterForm = () => {
   const [verifyPassword, setVerifyPassword] = useState("")
   const [password, setPassword] = useState("")
   return (
-    <form className="flex flex-col items-center md:items-end md:flex-col-reverse sm:flex-row w-full py-10  sm:rounded-md">
-      <div className="w-full sm:w-1/2 max-w-lg">
+    <form className="flex flex-col items-center md:items-end md:flex-col-reverse sm:flex-row w-full py-10 shadow-lg  sm:rounded-md">
+      <div className="w-full md:w-1/2  max-w-lg">
         <div className="mb-2">
-          <h1 className="text-sm text-start mb-5 font-semibold">
+          <h1 className="md:text-sm text-lg text-start mb-5 font-semibold">
             Register new account
           </h1>
         </div>
         <div className="divide-y divide-gray-200">
-          <div className="xs:text-sm md:text-normal leading-6 space-y-4 sm:leading-7">
+          <div className="md:text-sm lg:text-lg leading-6 space-y-4 sm:leading-7">
             <FloatLabelInput
               label={"Username"}
               value={username}
