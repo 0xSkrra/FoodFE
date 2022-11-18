@@ -10,12 +10,12 @@ export const RegisterForm = () => {
     <form className="flex flex-col items-center md:items-end md:flex-col-reverse sm:flex-row w-5/6 py-10 shadow-lg  sm:rounded-md">
       <div className="w-full sm:w-1/2 max-w-lg">
         <div className="mb-2">
-          <h1 className="text-sm text-start font-semibold">
+          <h1 className="text-sm text-start mb-5 font-semibold">
             Register new account
           </h1>
         </div>
         <div className="divide-y divide-gray-200">
-          <div className="text-xs leading-6 space-y-4 sm:text-sm sm:leading-7">
+          <div className="xs:text-sm md:text-normal leading-6 space-y-4 sm:leading-7">
             <FloatLabelInput
               label={"Username"}
               value={username}

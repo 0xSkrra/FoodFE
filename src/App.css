@@ -1,6 +1,10 @@
 .App {
   text-align: center;
 }
+body{
+  background-color: var(--background-color-primary) !important;
+
+}
 
 .App-logo {
   height: 40vmin;
@@ -37,12 +41,12 @@
   }
 }
 :root{
-  --text-color-primary: #b0afaf;
-  --background-color-primary: #061013;
+  --text-color-primary: #FFF;
+  --background-color-primary: #0c0d11;
   --hover-color-primary: #E7BBCB;
   --hover-color-secondary: #AF96AC;
-  --background-color-secondary: #050e11;
-  --text-color-secondary: #C2CACD;
+  --background-color-secondary: #171a25;
+  --text-color-secondary: #6d708a;
   --dark-text-color: #061013;
 }
 
@@ -62,8 +66,10 @@ a:hover{
   background-color: var(--background-color-primary);
 }
 .float-label-input input{
-  color: var(--text-color-primary);
-  background-color: var(--background-color-primary);
+  color: var(--text-color-secondary);
+}
+.float-label-input label{
+  color: var(--text-color-secondary);
 }
 .h1-link:hover{
   color:var(--hover-color-primary);
@@ -75,13 +81,26 @@ a:hover{
 .standard-text-color{
   color: var(--text-color-primary)
 }
+.secondary-text-color{
+  color: var(--text-color-secondary)
+}
 .input-active-label{
   color: var(--text-color-secondary)
 }
 .secondary-bg{
-  background-color: var(--background-color-secondary);
+  background-color: var(--background-color-secondary) !important;
 }
 .hover-bg:hover{
   background-color: var(--hover-color-primary);
   color: var(--dark-text-color);
+}
+.modal-input-background input{
+  background-color: var(--background-color-primary) !important;
+  color: var(--text-color-primary)
+}
+.modal-input-background label{
+  background-color: var(--background-color-primary) !important;
+}
+.primary-bg{
+  background-color: var(--background-color-primary) !important;
 }

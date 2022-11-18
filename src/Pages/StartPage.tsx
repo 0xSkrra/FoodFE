@@ -2,7 +2,12 @@ import ListItem from "../Components/utilities/ListItem"
 
 const StartPage = () => {
   return (
-    <div>
+    <div className="h-full">
+      <ListItem movie={{}} />
+      <ListItem movie={{}} />
+      <ListItem movie={{}} />
+      <ListItem movie={{}} />
+      <ListItem movie={{}} />
       <ListItem movie={{}} />
     </div>
   )

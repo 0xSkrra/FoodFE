@@ -1,119 +1,42 @@
 export default function ListItem({ movie }: any) {
   return (
-    <div className="max-h-24">
-      <div className="flex font-sans max-h-24 max-w-md">
-        <div className="flex-none w-56 relative">
-          <img
-            src="https://thecozycook.com/wp-content/uploads/2022/04/Lasagna-Recipe-f.jpg"
-            alt=""
-            className="absolute inset-0 w-full h-full object-cover rounded-lg"
-            loading="lazy"
-          />
+    <div className="flex wrapper bg-gray-400 antialiased w-full text-gray-900">
+      <div>
+        <img
+          src="https://source.unsplash.com/random/350x350"
+          alt=" random imgee"
+          className="w-full object-cover object-center rounded-lg shadow-md"
+        />
+
+        <div className="relative flex px-4 w-full -mt-16  ">
+          <div className="bg-white p-6 rounded-lg shadow-lg">
+            <div className="flex items-baseline">
+              <span className="bg-teal-200 text-teal-800 text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
+                New
+              </span>
+              <div className="ml-2 text-gray-600 uppercase text-xs font-semibold tracking-wider">
+                2 baths &bull; 3 rooms
+              </div>
+            </div>
+
+            <h4 className="mt-1 text-xl font-semibold uppercase leading-tight truncate">
+              A random Title
+            </h4>
+
+            <div className="mt-1">
+              $1800
+              <span className="text-gray-600 text-sm"> /wk</span>
+            </div>
+            <div className="mt-4">
+              <span className="text-teal-600 text-md font-semibold">
+                4/5 ratings{" "}
+              </span>
+              <span className="text-sm text-gray-600">
+                (based on 234 ratings)
+              </span>
+            </div>
+          </div>
         </div>
-        <form className="flex-auto max-h-24 p-6">
-          <div className="flex flex-wrap">
-            <h1 className="flex-auto text-sm font-medium ">Kids Jumpsuit</h1>
-            <div className="w-full flex-none mt-2 order-1 text-3xl font-bold text-violet-600"></div>
-            <div className="text-sm font-medium text-slate-400">In stock</div>
-          </div>
-          <div className="flex max-h-24 items-baseline mt-4 mb-6 pb-6 border-b border-slate-200">
-            <div className="space-x-2 max-h-24 flex text-sm font-bold">
-              <label>
-                <input
-                  className="sr-only peer"
-                  name="size"
-                  type="radio"
-                  value="xs"
-                  checked
-                />
-                <div className="w-9 h-9 rounded-full flex items-center justify-center text-violet-400 peer-checked:bg-violet-600 peer-checked:text-white">
-                  XS
-                </div>
-              </label>
-              <label>
-                <input
-                  className="sr-only peer"
-                  name="size"
-                  type="radio"
-                  value="s"
-                />
-                <div className="w-9 h-9 rounded-full flex items-center justify-center text-violet-400 peer-checked:bg-violet-600 peer-checked:text-white">
-                  S
-                </div>
-              </label>
-              <label>
-                <input
-                  className="sr-only peer"
-                  name="size"
-                  type="radio"
-                  value="m"
-                />
-                <div className="w-9 h-9 rounded-full flex items-center justify-center text-violet-400 peer-checked:bg-violet-600 peer-checked:text-white">
-                  M
-                </div>
-              </label>
-              <label>
-                <input
-                  className="sr-only peer"
-                  name="size"
-                  type="radio"
-                  value="l"
-                />
-                <div className="w-9 h-9 rounded-full flex items-center justify-center text-violet-400 peer-checked:bg-violet-600 peer-checked:text-white">
-                  L
-                </div>
-              </label>
-              <label>
-                <input
-                  className="sr-only peer"
-                  name="size"
-                  type="radio"
-                  value="xl"
-                />
-                <div className="w-9 h-9 rounded-full flex items-center justify-center text-violet-400 peer-checked:bg-violet-600 peer-checked:text-white">
-                  XL
-                </div>
-              </label>
-            </div>
-          </div>
-          <div className="flex space-x-4 mb-5 text-sm font-medium">
-            <div className="flex-auto flex space-x-4">
-              <button
-                className="h-10 px-6 font-semibold rounded-full bg-violet-600 text-white"
-                type="submit"
-              >
-                Buy now
-              </button>
-              <button
-                className="h-10 px-6 font-semibold rounded-full border border-slate-200"
-                type="button"
-              >
-                Add to bag
-              </button>
-            </div>
-            <button
-              className="flex-none flex items-center justify-center w-9 h-9 rounded-full text-violet-600 bg-violet-50"
-              type="button"
-              aria-label="Like"
-            >
-              <svg
-                width="20"
-                height="20"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
-                />
-              </svg>
-            </button>
-          </div>
-          <p className="text-sm ">
-            Free shipping on all continental US orders.
-          </p>
-        </form>
       </div>
     </div>
   )

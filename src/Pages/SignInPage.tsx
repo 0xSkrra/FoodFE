@@ -3,7 +3,7 @@ import { RegisterForm } from "../Components/Forms/registerForm"
 
 const SignInPage = () => {
   return (
-    <div className="w-full h-full justify-center flex flex-col sm:flex-row">
+    <div className=" flex flex-col w-full h-full justify-center items-center sm:flex-row">
       <div className="flex basis-5/12 h-5/6 items-center">
         <RegisterForm />
       </div>

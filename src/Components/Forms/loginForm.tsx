@@ -17,12 +17,14 @@ export const LoginForm = () => {
         <div className="w-full sm:w-1/2 max-w-lg">
           <div className="flex flex-row space-x-2 w-full mb-2">
             <div>
-              <h1 className="text-xs text-start font-semibold">Login</h1>
+              <h1 className="text-xs text-start mb-2 font-semibold">
+                Login
+              </h1>
             </div>
             <div className="w-full">
               <h1
                 onClick={() => setIsOpen(!isOpen)}
-                className="text-xs h1-link text-end font-semibold"
+                className="text-xs h1-link secondary-text-color text-end font-semibold"
               >
                 Forgot password?
               </h1>

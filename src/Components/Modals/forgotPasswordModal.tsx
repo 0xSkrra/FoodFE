@@ -49,11 +49,11 @@ const ForgotPasswordModal = ({
                 </Dialog.Title>
                 <div className="mt-8">
                   <p className="text-sm standard-text-color ">
-                    Please submit your email and we will email you, with further
-                    steps needed to recover your account!
+                    Please submit your email and we will email you,
+                    with further steps needed to recover your account!
                   </p>
                 </div>
-                <div className="mt-4 mb-4">
+                <div className="mt-4 mb-4 modal-input-background">
                   <FloatLabelInput
                     label={"Email"}
                     id={"email-reset-form"}

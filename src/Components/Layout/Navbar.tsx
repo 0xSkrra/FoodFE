@@ -22,7 +22,7 @@ const NavBar = () => {
         >
           <a
             href="#_"
-            className="inline-block py-2 text-sm font-normal px-1 transition-colors duration-300 transform rounded-md"
+            className="inline-block py-2 text-md secondary-text-color font-bold px-1 transition-colors duration-300 transform rounded-md"
           >
             Recipes
           </a>
@@ -37,7 +37,7 @@ const NavBar = () => {
         >
           <a
             href="#_"
-            className="inline-block py-2 text-sm font-normal -pl-2 px-1 transition-colors duration-300 transform rounded-md"
+            className="inline-block py-2 text-md secondary-text-color font-bold  -pl-2 px-1 transition-colors duration-300 transform rounded-md"
           >
             Lists
           </a>
@@ -55,7 +55,7 @@ const NavBar = () => {
         >
           <a
             href="#_"
-            className="inline-block py-2 text-sm font-normal px-2 transition-colors duration-300 transform rounded-md"
+            className="inline-block py-2 text-md secondary-text-color font-bold px-2 transition-colors duration-300 transform rounded-md"
           >
             Sign In
           </a>
