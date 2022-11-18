@@ -42,6 +42,21 @@ const NavBar = () => {
             Lists
           </a>
         </NavLink>
+        <NavLink
+          to={"/feed"}
+          className={({ isActive }) => {
+            return isActive
+              ? "active-nav-item text-end transition-colors duration-300 transform rounded-sm "
+              : "text-end transition-colors duration-300 transform rounded-md "
+          }}
+        >
+          <a
+            href="#_"
+            className="inline-block py-2 text-md secondary-text-color font-bold  -pl-2 px-1 transition-colors duration-300 transform rounded-md"
+          >
+            Feed
+          </a>
+        </NavLink>
       </div>
       <div className="basis-4/12"></div>
       <div className="basis-4/12 space-x-3 flex flex-row items-center justify-end">

@@ -7,7 +7,7 @@ export const RegisterForm = () => {
   const [verifyPassword, setVerifyPassword] = useState("")
   const [password, setPassword] = useState("")
   return (
-    <form className="flex flex-col items-center md:items-end md:flex-col-reverse sm:flex-row w-5/6 py-10 shadow-lg  sm:rounded-md">
+    <form className="flex flex-col items-center md:items-end md:flex-col-reverse sm:flex-row w-full py-10  sm:rounded-md">
       <div className="w-full sm:w-1/2 max-w-lg">
         <div className="mb-2">
           <h1 className="text-sm text-start mb-5 font-semibold">

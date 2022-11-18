@@ -1,6 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+:root{
+  --text-color-primary: #FFF;
+  --background-color-primary: #0c0d11;
+  --hover-color-primary: #E7BBCB;
+  --hover-color-secondary: #AF96AC;
+  --background-color-secondary: #171a25;
+  --text-color-secondary: #6d708a;
+  --dark-text-color: #061013;
+}
 
 body {
   margin: 0;
@@ -14,4 +23,32 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--background-color-primary) var(--background-color-secondary);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  margin-top: 10%;
+
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--background-color-primary);
+  color: var(--background-color-primary);
+  border-radius: 900px;
+  margin-top: 10%;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--background-color-primary);
+  border-radius: 49px;
+  color: var(--background-color-primary);
+  border: 29px solid var(--background-color-secondary);
+  margin-top: 10%;
+
 }
