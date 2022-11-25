@@ -1,15 +1,10 @@
+import RecipeCard from "../Components/Cards/RecipeCard"
+import RecipeCardCollection from "../Components/Collections/RecipeCardCollection"
 import ListItem from "../Components/utilities/ListItem"
 
 const StartPage = () => {
   return (
-    <div className="h-full">
-      <ListItem movie={{}} />
-      <ListItem movie={{}} />
-      <ListItem movie={{}} />
-      <ListItem movie={{}} />
-      <ListItem movie={{}} />
-      <ListItem movie={{}} />
-    </div>
+    <RecipeCardCollection recipes={[]} sectionName={"Just cooked"} />
   )
 }
 
