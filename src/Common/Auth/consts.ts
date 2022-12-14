@@ -4,6 +4,4 @@ export const AuthConst = {
     redirect_uri: "https://localhost:3000/loggedin",
     scope: "openid profile roles email address",
     response_type: "code",
-    // ...
   };
-

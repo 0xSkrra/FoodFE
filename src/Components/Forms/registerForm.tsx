@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { useAuth } from "react-oidc-context"
 import { FloatLabelInput } from "../utilities/FloatLabelInput"
 
 export const RegisterForm = () => {
@@ -6,53 +7,29 @@ export const RegisterForm = () => {
   const [username, setUsername] = useState("")
   const [verifyPassword, setVerifyPassword] = useState("")
   const [password, setPassword] = useState("")
+  const auth = useAuth()
   return (
-    <form className="flex flex-col items-center md:items-end md:flex-col-reverse sm:flex-row w-full py-10 shadow-lg  sm:rounded-md">
+    <div className="flex flex-col items-center md:items-end md:flex-col-reverse sm:flex-row w-full py-10 shadow-lg  sm:rounded-md">
       <div className="w-full md:w-1/2  max-w-lg">
         <div className="mb-2">
           <h1 className="md:text-sm text-lg text-start mb-5 font-semibold">
-            Register new account
+            Don't have an account?
           </h1>
         </div>
         <div className="divide-y divide-gray-200">
           <div className="md:text-sm lg:text-lg leading-6 space-y-4 sm:leading-7">
-            <FloatLabelInput
-              label={"Username"}
-              value={username}
-              id={"username-register"}
-              onChange={(v) => setUsername(v.target.value)}
-            />
-            <FloatLabelInput
-              label={"Email"}
-              value={email}
-              id={"email-register"}
-              onChange={(v) => setEmail(v.target.value)}
-            />
-            <FloatLabelInput
-              label={"Password"}
-              value={password}
-              isPassword={true}
-              id={"password-register"}
-              onChange={(v) => setPassword(v.target.value)}
-            />
-            <FloatLabelInput
-              label={"Verify password"}
-              value={verifyPassword}
-              isPassword={true}
-              id={"verifyPassword-register"}
-              onChange={(v) => setVerifyPassword(v.target.value)}
-            />
             <div className="flex content-center">
               <button
-                type="submit"
+                type="button"
+                onClick={() => void auth.signinRedirect()}
                 className="secondary-bg standard-text-color transition ease-in-out delay-80 h-8 hover-bg transition-200 text-xs rounded-md w-full"
               >
-                Register
+                Continue with Identity Provider
               </button>
             </div>
           </div>
         </div>
       </div>
-    </form>
+    </div>
   )
 }

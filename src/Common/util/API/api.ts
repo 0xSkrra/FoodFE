@@ -1,13 +1,37 @@
 import axios from 'axios'
-const api = axios.create({
-    baseURL: process.env.REACT_APP_API_BASEURL,
+import { User } from "oidc-client-ts"
+import { useAuth } from 'react-oidc-context';
+import { useAuthStore } from '../../../Store/AuthStore';
+import { AuthConst } from '../../Auth';
+
+const staticStore = useAuthStore.getState();
+// TODO: Getting from oidc-client-ts localStore or just get from userStore.getState()?
+function getUser() {
+    const oidcStorage = localStorage.getItem(`oidc.user:${AuthConst.authority}:${AuthConst.client_id}`)
+    if (!oidcStorage) {
+        return null;
+    }
+
+    return User.fromStorageString(oidcStorage);
+}
+const API = axios.create({
+    baseURL: process.env.REACT_APP_API_BASEURL || '',
     headers:{
         'content-type': 'application/json',
     }
 })
 
-axios.interceptors.request.use(async (config) => {
+API.interceptors.request.use((config) => {
+    const user = getUser()
+    if(user === null){
+        return config
+    } 
+    else{
+        config.headers!.authorization = `Bearer ${user.access_token}`;
+    } 
+
     return config
+
 })
 
-export default api
+export default API

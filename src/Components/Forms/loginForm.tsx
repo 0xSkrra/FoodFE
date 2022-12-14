@@ -1,11 +1,11 @@
 import { useState } from "react"
 import { FloatLabelInput } from "../utilities/FloatLabelInput"
 import ForgotPasswordModal from "../Modals/forgotPasswordModal"
+import { useAuth } from "react-oidc-context"
 
 export const LoginForm = () => {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
   const [isOpen, setIsOpen] = useState(false)
+  const auth = useAuth()
 
   return (
     <>
@@ -13,7 +13,7 @@ export const LoginForm = () => {
         isOpen={isOpen}
         setIsOpen={() => setIsOpen((prev) => !prev)}
       />
-      <form className="flex flex-col items-center md:items-start md:flex-col-reverse sm:flex-row w-full py-10 shadow-lg  sm:rounded-md">
+      <div className="flex flex-col items-center md:items-start md:flex-col-reverse sm:flex-row w-full py-10 shadow-lg  sm:rounded-md">
         <div className="w-full md:w-1/2 max-w-lg">
           <div className="flex flex-row space-x-2 w-full mb-2">
             <div>
@@ -33,31 +33,19 @@ export const LoginForm = () => {
 
           <div className=" flex max-w-lg divide-gray-200">
             <div className=" text-xs w-full space-y-4 sm:text-lg ">
-              <FloatLabelInput
-                label={"Email"}
-                value={email}
-                id={"email-login"}
-                onChange={(v) => setEmail(v.target.value)}
-              />
-              <FloatLabelInput
-                label={"Password"}
-                value={password}
-                isPassword={true}
-                id={"password-login"}
-                onChange={(v) => setPassword(v.target.value)}
-              />
-              <div className="flex -mt-6">
+              <div className="flex ">
                 <button
-                  type="submit"
-                  className="secondary-bg standard-text-color transition ease-in-out delay-80 h-8 hover-bg transition-200 text-xs rounded-md w-full"
+                  type="button"
+                  onClick={() => void auth.signinRedirect()}
+                  className="secondary-bg standard-text-color transition ease-in-out delay-80 h-8 hover:bg-white transition-200 text-xs rounded-md w-full"
                 >
-                  Login
+                  Login with our identity provider!
                 </button>
               </div>
             </div>
           </div>
         </div>
-      </form>
+      </div>
     </>
   )
 }

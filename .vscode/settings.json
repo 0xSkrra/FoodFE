@@ -1,3 +1,7 @@
 {
-  "cSpell.words": ["oidc", "signin"]
+  "cSpell.words": [
+    "Middlewares",
+    "oidc",
+    "signin"
+  ]
 }

@@ -3,24 +3,15 @@ import ReactDOM from "react-dom/client"
 import "./index.css"
 import App from "./App"
 import { AuthProvider } from "react-oidc-context"
-import { AuthConst } from "./Common/util/AuthConst"
 import { QueryClientProvider } from "react-query"
-import { queryClient } from "./Common/React-Query"
+import { queryClient } from "./Common/ReactQuery"
+import { AuthConst, signinCallback } from "./Common/Auth"
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 )
 root.render(
-  <AuthProvider
-    {...AuthConst}
-    onSigninCallback={() =>
-      window.history.replaceState(
-        {},
-        document.title,
-        window.location.pathname
-      )
-    }
-  >
+  <AuthProvider {...AuthConst} onSigninCallback={signinCallback}>
     <QueryClientProvider client={queryClient}>
       <App />
     </QueryClientProvider>
