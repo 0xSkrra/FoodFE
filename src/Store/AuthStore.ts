@@ -21,34 +21,40 @@ export const useAuthStore = create<UserSlice>()(
                 FetchUserProfile: async () => {
                     try{
                         const response = await GetUserProfile()
-                        if(!response.Success){
-                            throw response.Error
+                        if(!response.result.succeeded){
+                            console.log("Error fetching user:")
+                            console.log(response)
+                            return; // if request has errors that are not with statuscode 418 then something is wrong!
+
                         }
                         const user: IUserProfile= {
-                            id: response.data.id,
-                            username: response.data.username,
-                            isAdmin: response.data.isAdmin,
-                            bio: response.data.bio,
-                            recipeCount: response.data.recipeCount,
-                            picture: response.data.picture,
+                            id: response.result.data.id,
+                            username: response.result.data.username,
+                            isAdmin: response.result.data.isAdmin,
+                            bio: response.result.data.bio,
+                            recipeCount: response.result.data.recipeCount,
+                            picture: response.result.data.picture,
+
                         }
                         set(() => ({User: user}))
 
                     }
                     catch(e){
                         const response = await CreateDefaultUserProfile()
-                        if(response.Success){
+                        if(response.result.status !== 418){
                             const user: IUserProfile = {
-                                id: response.data.id,
-                                username: response.data.username,
-                                isAdmin: response.data.isAdmin,
-                                bio: response.data.bio,
-                                recipeCount: response.data.recipeCount,
-                                picture: response.data.picture,
+                                id: response.result.data.id,
+                                username: response.result.data.username,
+                                isAdmin: response.result.data.isAdmin,
+                                bio: response.result.data.bio,
+                                recipeCount: response.result.data.recipeCount,
+                                picture: response.result.data.picture,
+
                             }
                             set(() => ({User: user}))
                         }
                         else{
+                            console.log("Error posting user")
                             console.log(response)
                         }
                     }

@@ -1,10 +1,11 @@
-export interface IResponseWrapper{
-    data : {},
-    Success: boolean,
-    Error: null|{
-        Message:string,
-        code: number,
+export interface IResponseWrapper<T>{
+    result : {
+        succeeded: boolean,
+        data: T,
+        error: null|{
+            Message:string,
+            code: number,
+        },
+        status?: number,
     }
-    status?: number,
-
 }

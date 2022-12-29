@@ -1,13 +1,10 @@
 import axios from 'axios'
 import { User } from "oidc-client-ts"
-import { useAuth } from 'react-oidc-context';
-import { useAuthStore } from '../../../Store/AuthStore';
 import { AuthConst } from '../../Auth';
 
-const staticStore = useAuthStore.getState();
 // TODO: Getting from oidc-client-ts localStore or just get from userStore.getState()?
 function getUser() {
-    const oidcStorage = localStorage.getItem(`oidc.user:${AuthConst.authority}:${AuthConst.client_id}`)
+    const oidcStorage = sessionStorage.getItem(`oidc.user:${AuthConst.authority}:${AuthConst.client_id}`)
     if (!oidcStorage) {
         return null;
     }
