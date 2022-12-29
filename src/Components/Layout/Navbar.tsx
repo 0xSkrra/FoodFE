@@ -1,10 +1,10 @@
 import { useAuth } from "react-oidc-context"
 import { NavLink, useNavigate } from "react-router-dom"
 import Logo from "../../logo.svg"
-import { useAuthStore } from "../../Store/AuthStore"
+import { useProfileStore } from "../../Store/AuthStore"
 const NavBar = () => {
   const auth = useAuth()
-  const userStore = useAuthStore((state) => state)
+  const userStore = useProfileStore((state) => state)
   const navigate = useNavigate()
   return (
     <div className="flex-1 flex flex-row sm:flex-row">

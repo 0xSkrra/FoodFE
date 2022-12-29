@@ -1,4 +1,3 @@
-import { hasUncaughtExceptionCaptureCallback } from "process";
 import create, { StateCreator } from "zustand";
 import {devtools, persist} from "zustand/middleware";
 import { DefaultUserProfile, IUserProfile } from "../Common/Interfaces/IUserProfile";
@@ -14,43 +13,27 @@ const myMiddlewares = (f:
     >
     ) => devtools(persist(f))
 
-export const useAuthStore = create<UserSlice>()(
+export const useProfileStore = create<UserSlice>()(
         myMiddlewares((set) => ({
                 User: DefaultUserProfile,
                 SetUser: (user: IUserProfile) => set(() => ({User : user})),
                 FetchUserProfile: async () => {
                     try{
                         const response = await GetUserProfile()
-                        if(!response.Success){
-                            throw response.Error
+                        if(!response){
+                            throw response
                         }
-                        const user: IUserProfile= {
-                            id: response.data.id,
-                            username: response.data.username,
-                            isAdmin: response.data.isAdmin,
-                            bio: response.data.bio,
-                            recipeCount: response.data.recipeCount,
-                            picture: response.data.picture,
-                        }
-                        set(() => ({User: user}))
-
+                        set(() => ({User: response}))
                     }
                     catch(e){
+                        if(e as PromiseRejectedResult){
+                            throw e;
+                        }
                         const response = await CreateDefaultUserProfile()
-                        if(response.Success){
-                            const user: IUserProfile = {
-                                id: response.data.id,
-                                username: response.data.username,
-                                isAdmin: response.data.isAdmin,
-                                bio: response.data.bio,
-                                recipeCount: response.data.recipeCount,
-                                picture: response.data.picture,
-                            }
-                            set(() => ({User: user}))
+                        if(!response){
+                            throw response
                         }
-                        else{
-                            console.log(response)
-                        }
+                        set(() => ({User: response}))
                     }
                 },
             }),

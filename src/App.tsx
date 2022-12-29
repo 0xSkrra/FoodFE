@@ -4,27 +4,28 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import "./App.css"
 import Layout from "./Components/Layout"
 import ListsPage from "./Pages/ListsPage"
+import ProfilePage from "./Pages/ProfilePage"
 import RecipesPage from "./Pages/RecipesPage"
 import SignInPage from "./Pages/SignInPage"
 import StartPage from "./Pages/StartPage"
-import { useAuthStore } from "./Store/AuthStore"
+import { useProfileStore } from "./Store/AuthStore"
 
 function App() {
   const auth = useAuth()
-  const userStore = useAuthStore((state) => state)
+  const profileStore = useProfileStore((state) => state)
 
   useEffect(() => {
     const setUserProfile = () => {
       if (
-        userStore.User.id === -1 &&
+        profileStore.User.id === -1 &&
         auth.isAuthenticated &&
         !auth.isLoading
       ) {
-        userStore.FetchUserProfile()
+        profileStore.FetchUserProfile()
       }
     }
     setUserProfile()
-  }, [auth, userStore, userStore.User.id])
+  }, [auth, profileStore, profileStore.User.id])
 
   return (
     <BrowserRouter>
@@ -34,6 +35,7 @@ function App() {
           <Route path="/recipes" element={<RecipesPage />} />
           <Route path="/lists" element={<ListsPage />} />
           <Route path="/sign-in" element={<SignInPage />} />
+          <Route path="/:username" element={<ProfilePage />} />
           {/* TODO: Replace with bad request page */}
           <Route path="*" element={<StartPage />} />
         </Routes>

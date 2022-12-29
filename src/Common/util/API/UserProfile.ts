@@ -1,26 +1,30 @@
 import { IUserProfile } from "../../Interfaces/IUserProfile"
-import { IUserProfileResponse } from "../../Interfaces/IUserProfileResponse"
 import API from "./api"
 
-export const GetUserProfile = async (): Promise<IUserProfileResponse> => {
-    const user: IUserProfileResponse = await API.get(`/api/user`)
+export const GetUserProfile = async (): Promise<IUserProfile> => {
+    const user: IUserProfile = (await API.get(`/api/user`)).data
 
     return user
 }
-
-export const CreateDefaultUserProfile = async (): Promise<IUserProfileResponse> => {
-    // API gets userinfo from IDP via /connect/userinfo using berear token on behalf of the user
-    const user: IUserProfileResponse = await API.post(`/api/user`, {})
+export const GetUserProfileByUsername = async (username: string): Promise<IUserProfile> => {
+    const user: IUserProfile = (await API.get(`/api/user/username/${username}`)).data
 
     return user;
 }
 
-export const updateUserPRofile = async (user: IUserProfile): Promise<IUserProfileResponse> => {
+export const CreateDefaultUserProfile = async (): Promise<IUserProfile> => {
+    // API gets userinfo from IDP via /connect/userinfo using berear token on behalf of the user
+    const user: IUserProfile = (await API.post(`/api/user`, {})).data
+
+    return user;
+}
+
+export const updateUserPRofile = async (user: IUserProfile): Promise<IUserProfile> => {
     const toUpdate = {
         id: user.id,
         bio: user.bio,
         picture: user.picture
     }
-    const updatedUser: IUserProfileResponse = await API.put(`/api/user/${user.id}`, toUpdate)
+    const updatedUser: IUserProfile = (await API.put(`/api/user/${user.id}`, toUpdate)).data
     return updatedUser
 }

@@ -1,12 +1,6 @@
-import React, { useState } from "react"
 import { useAuth } from "react-oidc-context"
-import { FloatLabelInput } from "../utilities/FloatLabelInput"
 
 export const RegisterForm = () => {
-  const [email, setEmail] = useState("")
-  const [username, setUsername] = useState("")
-  const [verifyPassword, setVerifyPassword] = useState("")
-  const [password, setPassword] = useState("")
   const auth = useAuth()
   return (
     <div className="flex flex-col items-center md:items-end md:flex-col-reverse sm:flex-row w-full py-10 shadow-lg  sm:rounded-md">
