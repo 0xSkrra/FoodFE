@@ -1,35 +1,39 @@
 import { UserProfileNotFoundException } from "../../Exceptions/UserProfileNotFoundException"
-import { IResponseWrapper } from "../../Interfaces/IResponseWrapper"
 import { IUserProfile } from "../../Interfaces/IUserProfile"
-import { IUserProfileResponse } from "../../Interfaces/IUserProfileResponse"
 import API from "./api"
 
-export const GetUserProfile = async (): Promise<IResponseWrapper<IUserProfileResponse>> => {
-    const response: IResponseWrapper<IUserProfileResponse> = await API.get(`/api/user`)
-    if(!response.result.succeeded){
+export const GetUserProfile = async (): Promise<IUserProfile> => {
+    const response = await API.get(`/api/user`)
+    if(response.status !== 200){
         throw new UserProfileNotFoundException("profile not found")
     }
-    return response
+    const userProfile: IUserProfile = response.data
+    return userProfile
 }
 
-export const CreateDefaultUserProfile = async (): Promise<IResponseWrapper<IUserProfileResponse>> => {
+export const CreateDefaultUserProfile = async (): Promise<IUserProfile> => {
     // API gets userinfo from IDP via /connect/userinfo using berear token on behalf of the user
-    const response: IResponseWrapper<IUserProfileResponse> = await API.post(`/api/user`, {})
-    if(response.result.status === 418){
+    const response = await API.post(`/api/user`, {})
+    if(response.status === 418){
         throw new Error("Profile Already Exists")
     }
-    return response;
+    else if(response.status === 400){
+        throw new Error("Bad request for creation of user")
+    }
+    const userProfile: IUserProfile = response.data
+    return userProfile
 }
 
-export const updateUserProfile = async (user: IUserProfile): Promise<IResponseWrapper<IUserProfileResponse>> => {
+export const updateUserProfile = async (user: IUserProfile): Promise<IUserProfile> => {
     const toUpdate = {
         id: user.id,
         bio: user.bio,
         picture: user.picture
     }
-    const response: IResponseWrapper<IUserProfileResponse> = await API.put(`/api/user/${user.id}`, toUpdate)
-    if(!response.result.succeeded){
-        throw response.result.error
+    const response = await API.put(`/api/user/${user.id}`, toUpdate)
+    if(response.status !== 200){
+        throw new Error("Failed to update user")
     }
-    return response
+    const userProfile: IUserProfile = response.data
+    return userProfile
 }
