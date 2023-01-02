@@ -11,6 +11,15 @@ export const GetUserProfile = async (): Promise<IUserProfile> => {
     return userProfile
 }
 
+export const GetUserProfileByUsername = async (username: string): Promise<IUserProfile> => {
+    const response = await API.get(`api/user/username/${username}`)
+    if(response.status !== 200){
+        throw new Error("Profile not found")
+    }
+    const userProfile: IUserProfile = response.data
+    return userProfile
+}
+
 export const CreateDefaultUserProfile = async (): Promise<IUserProfile> => {
     // API gets userinfo from IDP via /connect/userinfo using berear token on behalf of the user
     const response = await API.post(`/api/user`, {})

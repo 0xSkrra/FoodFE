@@ -8,7 +8,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="container min-h-full min-w-full overflow-auto justify-center">
       <div className="flex h-full w-full justify-center">
-        <div className="flex flex-col min-h-screen h-screen sm:6/12 lg:w-8/12 md:w-8/12 justify-between content-between">
+        <div className="flex flex-col min-h-screen h-screen sm:6/12 lg:w-6/12 md:w-6/12 justify-between content-between">
           <div className="pt-10 basis-2/12">
             <NavBar />
           </div>

@@ -1,8 +1,6 @@
 import axios from 'axios'
 import { getUser } from '../../Auth';
 
-// TODO: Getting from oidc-client-ts localStore or just get from userStore.getState()?
-
 const API = axios.create({
     baseURL: process.env.REACT_APP_API_BASEURL || '',
     headers:{

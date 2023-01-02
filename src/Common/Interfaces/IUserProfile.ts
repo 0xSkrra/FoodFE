@@ -3,7 +3,11 @@ export interface IUserProfile{
     username: string,
     isAdmin: boolean,
     bio: string,
-    recipeCount: number,
+    createdRecipeCount: number,
+    savedRecipeCount: number,
+    favoritedRecipeCount: number,
+    followerCount: number,
+    followingCount: number,
     picture: string,
 }
 
@@ -12,6 +16,10 @@ export const DefaultUserProfile: IUserProfile = {
     username: "DefaultUser",
     isAdmin: false,
     bio: "anonymous",
-    recipeCount: 0,
+    createdRecipeCount: -1,
     picture: "",
+    savedRecipeCount: -1,
+    favoritedRecipeCount: -1,
+    followerCount: -1,
+    followingCount: -1
 }
