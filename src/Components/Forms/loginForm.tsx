@@ -1,5 +1,4 @@
 import { useState } from "react"
-import { FloatLabelInput } from "../utilities/FloatLabelInput"
 import ForgotPasswordModal from "../Modals/forgotPasswordModal"
 import { useAuth } from "react-oidc-context"
 
@@ -17,9 +16,7 @@ export const LoginForm = () => {
         <div className="w-full md:w-1/2 max-w-lg">
           <div className="flex flex-row space-x-2 w-full mb-2">
             <div>
-              <h1 className="text-xs text-start mb-2 font-semibold">
-                Login
-              </h1>
+              <h1 className="text-xs text-start mb-2 font-semibold">Login</h1>
             </div>
             <div className="w-full">
               <h1

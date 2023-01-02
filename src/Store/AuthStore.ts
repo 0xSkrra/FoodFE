@@ -1,4 +1,3 @@
-import { hasUncaughtExceptionCaptureCallback } from "process";
 import create, { StateCreator } from "zustand";
 import {devtools, persist} from "zustand/middleware";
 import { DefaultUserProfile, IUserProfile } from "../Common/Interfaces/IUserProfile";
@@ -14,49 +13,27 @@ const myMiddlewares = (f:
     >
     ) => devtools(persist(f))
 
-export const useAuthStore = create<UserSlice>()(
+export const useProfileStore = create<UserSlice>()(
         myMiddlewares((set) => ({
                 User: DefaultUserProfile,
                 SetUser: (user: IUserProfile) => set(() => ({User : user})),
                 FetchUserProfile: async () => {
                     try{
                         const response = await GetUserProfile()
-                        if(!response.result.succeeded){
-                            console.log("Error fetching user:")
-                            console.log(response)
-                            return; // if request has errors that are not with statuscode 418 then something is wrong!
-
+                        if(!response){
+                            throw response
                         }
-                        const user: IUserProfile= {
-                            id: response.result.data.id,
-                            username: response.result.data.username,
-                            isAdmin: response.result.data.isAdmin,
-                            bio: response.result.data.bio,
-                            recipeCount: response.result.data.recipeCount,
-                            picture: response.result.data.picture,
-
-                        }
-                        set(() => ({User: user}))
-
+                        set(() => ({User: response}))
                     }
                     catch(e){
+                        if(e as PromiseRejectedResult){
+                            throw e;
+                        }
                         const response = await CreateDefaultUserProfile()
-                        if(response.result.status !== 418){
-                            const user: IUserProfile = {
-                                id: response.result.data.id,
-                                username: response.result.data.username,
-                                isAdmin: response.result.data.isAdmin,
-                                bio: response.result.data.bio,
-                                recipeCount: response.result.data.recipeCount,
-                                picture: response.result.data.picture,
-
-                            }
-                            set(() => ({User: user}))
+                        if(!response){
+                            throw response
                         }
-                        else{
-                            console.log("Error posting user")
-                            console.log(response)
-                        }
+                        set(() => ({User: response}))
                     }
                 },
             }),
