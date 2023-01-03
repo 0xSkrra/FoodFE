@@ -13,7 +13,7 @@ export const LoginForm = () => {
         setIsOpen={() => setIsOpen((prev) => !prev)}
       />
       <div className="flex flex-col items-center md:items-start md:flex-col-reverse sm:flex-row w-full py-10 shadow-lg  sm:rounded-md">
-        <div className="w-full md:w-1/2 max-w-lg">
+        <div className="w-full  max-w-lg">
           <div className="flex flex-row space-x-2 w-full mb-2">
             <div>
               <h1 className="text-xs text-start mb-2 font-semibold">Login</h1>
@@ -34,7 +34,7 @@ export const LoginForm = () => {
                 <button
                   type="button"
                   onClick={() => void auth.signinRedirect()}
-                  className="secondary-bg standard-text-color transition ease-in-out delay-80 h-8 hover:bg-white transition-200 text-xs rounded-md w-full"
+                  className="text-xs  secondary-bg standard-text-color transition ease-in-out delay-80 h-8 hover:bg-white transition-200 rounded-md w-full"
                 >
                   Login with our identity provider!
                 </button>

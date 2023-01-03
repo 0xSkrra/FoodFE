@@ -4,8 +4,9 @@ import API from "./api"
 
 export const GetUserProfile = async (): Promise<IUserProfile> => {
     const response = await API.get(`/api/user`)
-    if(response.status !== 200){
-        throw new UserProfileNotFoundException("profile not found")
+    if(response.status === 404){
+        const response: IUserProfile = await CreateDefaultUserProfile();
+        return response
     }
     const userProfile: IUserProfile = response.data
     return userProfile
@@ -26,7 +27,7 @@ export const CreateDefaultUserProfile = async (): Promise<IUserProfile> => {
     if(response.status === 418){
         throw new Error("Profile Already Exists")
     }
-    else if(response.status === 400){
+    else if(response.status === 404){
         throw new Error("Bad request for creation of user")
     }
     const userProfile: IUserProfile = response.data
