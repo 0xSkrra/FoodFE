@@ -1,6 +1,12 @@
+import { randomUUID } from "crypto"
 import { useEffect } from "react"
 import { hasAuthParams, useAuth } from "react-oidc-context"
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  useMatch,
+} from "react-router-dom"
 import "./App.css"
 import Layout from "./Components/Layout"
 import ListsPage from "./Pages/ListsPage"
@@ -8,7 +14,7 @@ import ProfilePage from "./Pages/ProfilePage"
 import RecipesPage from "./Pages/RecipesPage"
 import SignInPage from "./Pages/SignInPage"
 import StartPage from "./Pages/StartPage"
-import { useProfileStore } from "./Store/AuthStore"
+import { useProfileStore } from "./Store/profileStore"
 
 function App() {
   const auth = useAuth()

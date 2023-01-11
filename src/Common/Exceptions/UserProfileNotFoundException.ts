@@ -6,6 +6,6 @@ export class UserProfileNotFoundException extends Error{
         Object.setPrototypeOf(this, UserProfileNotFoundException.prototype)
     }
     getError = () => {
-        console.log('Error' + this.message)
+        console.log('Error: ' + this.message)
     }
 }

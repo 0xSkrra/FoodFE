@@ -1,7 +1,7 @@
 import { useAuth } from "react-oidc-context"
 import { NavLink, useNavigate } from "react-router-dom"
 import Logo from "../../logo.svg"
-import { useProfileStore } from "../../Store/AuthStore"
+import { useProfileStore } from "../../Store/profileStore"
 const NavBar = () => {
   const auth = useAuth()
   const userStore = useProfileStore((state) => state)
@@ -84,6 +84,7 @@ const NavBar = () => {
         {auth.isAuthenticated && (
           <NavLink
             to={`/${userStore.User.username}`}
+            end={true}
             className={({ isActive }) => {
               return isActive
                 ? "active-nav-item text-end  transition-colors duration-300 transform rounded-md "

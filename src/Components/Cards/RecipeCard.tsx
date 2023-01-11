@@ -2,7 +2,7 @@ import React from "react"
 
 const RecipeCard = () => {
   return (
-    <div className="w-full rounded shadow-sm shadow-gray-200 dark:shadow-gray-900 secondary-bg duration-200 hover:-translate-y-1">
+    <div className="w-full h-64 rounded shadow-sm shadow-gray-200 dark:shadow-gray-900 secondary-bg duration-200 hover:-translate-y-1">
       <a href="link" className="cursor-pointer">
         <figure>
           <img
@@ -12,7 +12,7 @@ const RecipeCard = () => {
           />
 
           <figcaption className="p-4 flex-col">
-            <p className="text-sm sm:text-sm xs:text-xs xl:text-base lg:text-lg mb-4 font-bold leading-relaxed text-gray-800 dark:text-gray-300">
+            <p className="text-sm sm:text-sm xs:text-xs xl:text-xs lg:text-lg mb-4 font-bold leading-relaxed text-gray-800 dark:text-gray-300">
               Authenetic Italian Lasagna
             </p>
             <small className="leading-5 text-gray-500 dark:text-gray-400">
